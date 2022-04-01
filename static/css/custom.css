@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+h1 {
+font-family: 'Saira', sans-serif;
+}
+p {
+  color: navy;
+  text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.nav-item{
+    letter-spacing: .2em;
+    font-size : 14px;
+    text-transform : uppercase;
+    font-family: 'Saira', sans-serif;
+
+}
+.my_footer{
+    background-color:black;
+}
+
+.my_footer p{
+    padding-top:10px;
+    padding-bottom:10px;
+    font-size:14px;
+}
+.banner_img{
+    align-items: center;
+    align-content: center;
+
+}
+.heero h1{
+    text-align:center;
+}
+.heero p{
+    text-align:center;
+}
+
+.search_text {
+    padding-top:20px;
+}
+
+.m_a{
+    text-color:red;
+    color:#0d3064;!important;
+}
+
+.a {
+  background-color: #f44336;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+/*** Cart ***/
+
+.my_cus_table{
+    min-width:400px;
+    font-size:14px;
+}
+.my_cus_head{
+    font-weight:normal;
+    text-transform:uppercase;
+    letter-spacing:.2em;
+    background-color:#f8f8fa!important;
+}
+
+.custom_a{
+    text-decoration:none;
+}
+
+.my_custom_button{
+    margin-top:5px;
+}

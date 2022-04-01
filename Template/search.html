@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}
+Search Result : {{query}}
+{% endblock %}
+
+{% block content %}
+<div>
+    <p class="text-center search_text">You Have Searched for : <b>{{query}}</b></p>
+</div>
+<div class="row max-auto">
+    {% for pr in product %}
+    <div class="col-6 col-sm-6 col-md-4 col-lg-3 ">
+        <div class=" card pt-2  shadow">
+            <a href="{{pr.get_url}}"><img src="{{pr.image.url}}" class="card-img-top" alt="..."></a>
+            <div class="card-body">
+                <h5 class="card-title">{{pr.name}}</h5>
+                <p class="card-text">Price : {{pr.price}}</p>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="row max-auto">
+        <p class="text-center search_text"> 0 Results Found </p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}
+{{category.name}}
+{% endblock %}
+
+{% block content %}
+{% if category %}
+
+<div>
+    <div>
+        <p><i class="bi bi-house-fill"></i><a href="{% url 'shope:AllProdCat' %}" style="text-decoration:none;"> Our
+            Product Collection</a></p>
+    </div>
+</div>
+{% endif %}
+
+<!--Check-->
+<div>
+    {% if category %}
+    <img src="{{category.image.url}}" alt="{{category.name}}" class=" container image-fluid">
+</div><br>
+<div>
+    <h1>{{category.name}}</h1>
+    <p>{{category.description}}</p>
+</div>
+{% else %}
+<div>
+    <img src="{% static 'banner/banner1.jpg' %}" alt="Our Product" class="img-fluid">
+</div>
+<br>
+<div class="heero">
+    <h1>Our Product Collection</h1>
+    <p>A Product Designer with 7+ years of design experience. Passionate about aesthetics and the human mind, I use my
+        skills in order to help people achieve their goals. </p>
+</div>
+{% endif %}
+
+<!--Check-->
+<div class="row max-auto">
+    {% for pr in product.object_list %}
+    <div class="col-6 col-sm-6 col-md-4 col-lg-3 ">
+        <div class=" card pt-2  shadow">
+            <a href="{{pr.get_url}}"><img src="{{pr.image.url}}" class="card-img-top" alt="..."></a>
+            <div class="card-body">
+                <h5 class="card-title">{{pr.name}}</h5>
+                <p class="card-text">Price : {{pr.price}}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="mx-auto">
+        {% if product.paginator.num_pages > 1 %}
+        <hr>
+        <div class="text-center p-2">
+            {% for pg in product.paginator.page_range %}
+            <a href="?page={{pg}}"
+               class=" btn btn-dark btn-sm {% if product.number == pg %} active {% endif %}">{{pg}}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    <br>
+</div>
+
+{% endblock %}

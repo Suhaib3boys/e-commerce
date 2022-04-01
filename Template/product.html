@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}
+{{product.name}}
+{% endblock %}
+
+{% block content %}
+
+<div>
+    <div>
+        <p><i class="bi bi-house-fill"></i><a href="{% url 'shope:AllProdCat'%}" style="text-decoration:none;">
+            Home </a> | <i
+                class="bi bi-arrow-left-square-fill"></i> <a
+                href="{{product.category.get_url}}" style="text-decoration:none;">{{product.category}}</a>|
+            {{product.name}}<</p>
+    </div>
+</div>
+<div class="card mb-3 container py-4">
+    <div class="row g-0">
+        <div class="col-md-4 col-sm-12">
+            <img src="{{product.image.url}}" class="img-fluid rounded-start" alt="{{product.name}}">
+        </div>
+        <div class="col-md-8 col-sm-12">
+            <div class="card-body">
+                <h5 class="card-title">{{product.name}}</h5>
+                <p>{{product.price}}</p>
+                <p> Product Description </p>
+                <p>{{product.description}}</p>
+                {% if product.stock <= 0 %}
+                <p><b>Out Of Stock</b></p>
+                {% else %}
+                <a href="{% url 'cart:add_cart' product.id %}" class="btn btn-secondary">Add To Cart </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+{% endblock %}
